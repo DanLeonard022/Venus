@@ -339,6 +339,30 @@ def run_alexa():
         talk("Blinking all LEDs.")
         arduino.write(b'h')
 
+    elif 'smile' in command:
+        talk("I'm smiling now!")
+        arduino.write(b's')
+
+    elif 'angry' in command or 'angry' in command:
+        talk("I'm angry now!")
+        arduino.write(b'a')
+
+    elif 'sad' in command or 'sad' in command:
+        talk("I'm feeling sad.")
+        arduino.write(b'l')
+
+    elif 'wink' in command:
+        talk("Here's a wink!")
+        arduino.write(b'w')
+
+    elif 'sleep' in command or 'sleep' in command:
+        talk("Going to sleep.")
+        arduino.write(b'z')
+
+    elif 'wake up' in command or 'wake up' in command:
+        talk("I'm awake!")
+        arduino.write(b'e')
+
 
     elif 'rotate to 0' in command:
         talk("Rotating to 0 degrees.")
