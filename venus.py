@@ -106,8 +106,24 @@ def read_sensor_data():
         
 def talk(text):
     fillers = ["Okay,", "Hmm,", "Alright,", "Sure,", "Got it,", "Boss,"]
+    
+    if arduino:
+        try:
+            arduino.write(b'x')  # Trigger OLED waveform animation
+            time.sleep(0.1)
+        except:
+            pass
+
     engine.say(random.choice(fillers) + " " + text)
     engine.runAndWait()
+
+    if arduino:
+        try:
+            arduino.write(b'y')  # Return to OLED eyes
+            time.sleep(0.1)
+        except:
+            pass
+
 
 # Global conversation memory
 conversation_history = "The following is a friendly conversation between an AI assistant named Venus and her boss Dan Leonard.\n"
